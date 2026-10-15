@@ -14,7 +14,7 @@ Amplitude encoding of the same image needs (10, 2028).
 
 ## Requirements
 
-Python 3.10, PyTorch, torchvision, NumPy, Qiskit, qiskit-aer, matplotlib, Pillow (qiskit-ibm-runtime only for the hardware runs). Tested with PyTorch 2.0, Qiskit 2.2.3 and qiskit-aer 0.17.2; MNIST / CIFAR-10 are downloaded automatically.
+Python 3.10, PyTorch, torchvision, NumPy, Qiskit, qiskit-aer, matplotlib, qiskit-ibm-runtime.
 
 ## Quick start
 
