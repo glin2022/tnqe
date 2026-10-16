@@ -27,14 +27,14 @@ from core_encoding import cores_to_chain_mats, build_core_circuit, decode_core_s
 from unitary_encoding import build_unitary_circuit, decode_unitary_statevector
 from utils.circuit_stats import circuit_stats
 
-img = load_mnist32(1)[0][0]                       # 32x32 image in [0, 1]
+img = load_mnist32(1)[0][0]
 
-# TNQE-full / TNQE-core share the classical QTT fit (rank 4)
+# TNQE-full and TNQE-core
 model, recon = train_qtt(img, rank=4)
 qc_full = build_full_circuit(model.cores_numpy())
 qc_core = build_core_circuit(cores_to_chain_mats(model.cores_numpy()))[0]
 
-# TNQE-unitary: learn block unitaries (rank 8, 4 layers) and emit the circuit directly
+# TNQE-unitary
 umodel, urecon = train_unitary(img, rank=8, n_layers=4)
 qc_uni = build_unitary_circuit(umodel.theta_numpy(), L=5, rank=8, n_layers=4)
 
